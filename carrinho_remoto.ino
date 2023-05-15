@@ -14,10 +14,10 @@
 
 #include <SoftwareSerial.h>
 SoftwareSerial bluetooth(10, 11);
-#define m1 4  //tras
-#define m2 3  //frente
-#define m3 9  //tras
-#define m4 8  //frente
+#define m1 4  //frente
+#define m2 3  //tras
+#define m3 8  //frente
+#define m4 9  //tras
 
 #define LED 7
 #define buzzer 5
@@ -30,29 +30,29 @@ void parar() {
 }
 
 void tras() {
-  digitalWrite(m1, HIGH);
-  digitalWrite(m2, LOW);
-  digitalWrite(m3, HIGH);
-  digitalWrite(m4, LOW);
-}
-
-void frente() {
   digitalWrite(m1, LOW);
   digitalWrite(m2, HIGH);
   digitalWrite(m3, LOW);
   digitalWrite(m4, HIGH);
 }
+
+void frente() {
+  digitalWrite(m1, HIGH);
+  digitalWrite(m2, LOW);
+  digitalWrite(m3, HIGH);
+  digitalWrite(m4, LOW);
+}
 void direita() {
-  digitalWrite(m1, LOW);
-  digitalWrite(m2, 50);
+  digitalWrite(m1, HIGH);
+  digitalWrite(m2, LOW);
   digitalWrite(m3, LOW);
   digitalWrite(m4, LOW);
 }
-void esquerada() {
+void esquerda() {
   digitalWrite(m1, LOW);
   digitalWrite(m2, LOW);
-  digitalWrite(m3, LOW);
-  digitalWrite(m4, HIGH);
+  digitalWrite(m3, HIGH);
+  digitalWrite(m4, LOW);
 }
 
 void buzina() {
@@ -98,7 +98,7 @@ void loop() {
     direita();
   }
   if (C == 76) {
-    esquerada();
+    esquerda();
   }
 
   if (C == 70) {
