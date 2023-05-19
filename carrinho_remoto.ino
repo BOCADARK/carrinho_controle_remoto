@@ -13,11 +13,11 @@
 //88 liga o pisca alerta
 
 #include <SoftwareSerial.h>
-SoftwareSerial bluetooth(10, 11);
-#define m1 4  //frente
-#define m2 3  //tras
-#define m3 8  //frente
-#define m4 9  //tras
+SoftwareSerial bluetooth(8, 11);
+#define m1 6  //tras
+#define m2 3  //frente
+#define m3 9  //tras
+#define m4 10  //frente
 
 #define LED 7
 #define buzzer 5
@@ -30,28 +30,28 @@ void parar() {
 }
 
 void tras() {
+  digitalWrite(m1, HIGH);
+  digitalWrite(m2, LOW);
+  digitalWrite(m3, HIGH);
+  digitalWrite(m4, LOW);
+}
+
+void frente() {
   digitalWrite(m1, LOW);
   digitalWrite(m2, HIGH);
   digitalWrite(m3, LOW);
   digitalWrite(m4, HIGH);
 }
-
-void frente() {
-  digitalWrite(m1, HIGH);
-  digitalWrite(m2, LOW);
-  digitalWrite(m3, HIGH);
-  digitalWrite(m4, LOW);
-}
 void direita() {
-  digitalWrite(m1, HIGH);
+  digitalWrite(m1, LOW);
   digitalWrite(m2, LOW);
   digitalWrite(m3, LOW);
-  digitalWrite(m4, LOW);
+  analogWrite(m4, 130);
 }
 void esquerda() {
   digitalWrite(m1, LOW);
-  digitalWrite(m2, LOW);
-  digitalWrite(m3, HIGH);
+  analogWrite(m2, 130);
+  digitalWrite(m3, LOW);
   digitalWrite(m4, LOW);
 }
 
